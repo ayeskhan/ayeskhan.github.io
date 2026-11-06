@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ayesha Khan — Nanotechnology Engineering, University of Waterloo. Thin-film fabrication, vacuum deposition, and metrology projects.">
+<title>Ayesha Khan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column on a "wafer" ground; projects as lab-notebook entries with real measured data tables. */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --fg:#13201f; --muted:#4f5f5e; --line:#d6dedd;
+  --accent:#1a5e63; --accent-soft:#e1eeee; --mark:#b5702a;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1515; --surface:#132020; --fg:#e4ecea; --muted:#9aaeab; --line:#24393a;
+  --accent:#6fc2c6; --accent-soft:#173233; --mark:#e0a463; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1515; --surface:#132020; --fg:#e4ecea; --muted:#9aaeab; --line:#24393a;
+  --accent:#6fc2c6; --accent-soft:#173233; --mark:#e0a463; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:52rem;margin:0 auto;padding-block:3.5rem 4rem;display:grid;gap:3.5rem}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.6rem,7vw,4.2rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.65rem;font-weight:700}
+h3{font-size:1.3rem;font-weight:500}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* hero */
+header{display:grid;gap:1.1rem}
+.lede{font-size:1.15rem;color:var(--muted);max-width:58ch}
+.lede strong{color:var(--fg);font-weight:600}
+.contact{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;font-size:.95rem}
+.contact .addr{font-family:var(--mono);font-size:.9rem;user-select:all}
+.copy{font:500 .8rem var(--mono);background:var(--accent-soft);color:var(--accent);border:1px solid transparent;border-radius:999px;padding:.25rem .7rem;cursor:pointer}
+.copy:hover{border-color:var(--accent)}
+.status{display:inline-flex;gap:.5rem;align-items:center;font:500 .85rem var(--mono);color:var(--accent)}
+.status::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--accent)}
+
+/* sections */
+section{display:grid;gap:1.6rem}
+.sec-head{display:grid;gap:.4rem;border-top:1px solid var(--line);padding-top:1.4rem}
+
+/* project entries */
+.entry{display:grid;gap:1rem}
+.entry + .entry{border-top:1px dashed var(--line);padding-top:2rem}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font:400 .85rem var(--mono);color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:0;list-style:none}
+.tags li{font:500 .75rem var(--mono);color:var(--accent);background:var(--accent-soft);padding:.2rem .55rem;border-radius:4px}
+ul.points{margin:0;padding-left:1.1rem;display:grid;gap:.45rem;max-width:65ch}
+ul.points li::marker{color:var(--mark)}
+
+/* data */
+.figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1rem 1.1rem;display:grid;gap:.7rem}
+.figure figcaption,.cap{font:400 .8rem/1.4 var(--mono);color:var(--muted)}
+.table-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:30rem;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.flag{color:var(--mark);font-weight:600}
+svg text{font-family:var(--mono);font-size:11px}
+
+/* experience */
+.roles{display:grid;gap:1.6rem}
+.role{display:grid;grid-template-columns:9.5rem 1fr;gap:.4rem 1.4rem}
+.role .when{font:400 .85rem var(--mono);color:var(--muted);padding-top:.2rem}
+.role > div{min-width:0;display:grid;gap:.5rem}
+.role .org{color:var(--muted);font-size:.95rem}
+@media (max-width:640px){.role{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1rem;display:grid;gap:.5rem;align-content:start}
+.skill h3{font-size:1rem;font-family:var(--body);font-weight:600}
+.skill p{font-size:.92rem;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-top:1.4rem;font:400 .85rem var(--mono);color:var(--muted);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between}
+@media (prefers-reduced-motion:no-preference){a,.copy{transition:color .15s,border-color .15s}}
+</style>
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Nanotechnology Engineering · University of Waterloo · BASc 2028</span>
+  <h1>Ayesha Khan</h1>
+  <p class="lede">I build things that make and measure thin films. <strong>Semiconductor fabrication, vacuum deposition, and the metrology that tells you whether a process actually worked.</strong> I've taken devices from bare silicon wafer to electrical test, and built my student fab team's first thin-film measurement tool.</p>
+  <div class="contact">
+    <span class="status">Seeking a co-op, January–August 2027</span>
+  </div>
+  <div class="contact">
+    <span class="addr" id="email">a58khan@uwaterloo.ca</span>
+    <button class="copy" id="copy-email" type="button">Copy email</button>
+    <a href="https://www.linkedin.com/in/ayesha-khan-b0a549242" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+</header>
+
+<section aria-labelledby="work">
+  <div class="sec-head">
+    <span class="eyebrow">Selected work</span>
+    <h2 id="work">Fabrication &amp; metrology projects</h2>
+  </div>
+
+  <article class="entry">
+    <div class="meta"><span>HackerFab design team</span><span>Jun 2026 – present</span><span>Four-point probe lead</span></div>
+    <h3>A four-point probe for a student-run fab</h3>
+    <p>HackerFab is a student team at Waterloo building its own small semiconductor fab: sputter deposition, maskless lithography, and device test, with tools the team designs itself. The team could deposit aluminum films but had no way to check them. I took on the fab's first thin-film metrology tool and own it end to end.</p>
+    <figure class="figure">
+      <svg viewBox="0 0 520 170" role="img" aria-labelledby="probe-t" style="width:100%;height:auto;max-width:100%">
+        <title id="probe-t">Four collinear probes on a thin film: current through the outer pair, voltage measured across the inner pair</title>
+        <rect x="20" y="120" width="480" height="16" rx="2" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <rect x="20" y="136" width="480" height="18" rx="2" fill="var(--line)"/>
+        <text x="26" y="132" fill="var(--accent)">sputtered Al film</text>
+        <text x="26" y="149" fill="var(--muted)">substrate</text>
+        <g stroke="var(--fg)" stroke-width="3" stroke-linecap="round">
+          <line x1="140" y1="60" x2="140" y2="118"/><line x1="220" y1="60" x2="220" y2="118"/>
+          <line x1="300" y1="60" x2="300" y2="118"/><line x1="380" y1="60" x2="380" y2="118"/>
+        </g>
+        <path d="M140 60 V30 H380 V60" fill="none" stroke="var(--mark)" stroke-width="2"/>
+        <circle cx="260" cy="30" r="14" fill="var(--surface)" stroke="var(--mark)" stroke-width="2"/>
+        <text x="255" y="34" fill="var(--mark)">I</text>
+        <path d="M220 60 V78 H300 V60" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="260" cy="78" r="12" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="255" y="82" fill="var(--accent)">V</text>
+        <text x="395" y="34" fill="var(--mark)">current, outer pair</text>
+        <text x="395" y="82" fill="var(--accent)">voltage, inner pair</text>
+      </svg>
+      <figcaption>Rₛ = (π / ln 2) · V / I ≈ 4.532 · V / I, in Ω/□ for a thin film on a wide sample. Current reversal cancels thermal EMF at the probe contacts.</figcaption>
+    </figure>
+    <ul class="points">
+      <li>Designed a spring-contact probe head in SolidWorks and 3D printed it for repeatable contact with the film.</li>
+      <li>Built the measurement chain: constant-current sourcing through the outer probes, differential voltage sensing across the inner pair, and current reversal to cancel thermal EMF.</li>
+      <li>Wrote the design proposal and validation plan before building: calibration against reference standards, repeatability, and uniformity mapping. Validated against reference resistors before trusting a reading.</li>
+      <li>Now using it to diagnose anomalously high film resistance and feed results back to the deposition team.</li>
+    </ul>
+    <ul class="tags"><li>SolidWorks</li><li>3D printing</li><li>Measurement electronics</li><li>Sheet resistance</li><li>Validation</li></ul>
+  </article>
+
+  <article class="entry">
+    <div class="meta"><span>Microfabrication &amp; Thin-Film Technology</span><span>Spring 2026</span><span>UWaterloo cleanroom</span></div>
+    <h3>MIS capacitors, bare wafer to electrical test</h3>
+    <p>Built Al/SiNₓ/p-Si capacitors on 3-inch silicon over three cleanroom sessions: RCA clean, PECVD silicon nitride at 350 °C, contact photolithography, CF₄/O₂ reactive ion etch, DC-sputtered aluminum, and PAN wet etch. Then characterized every layer and every device.</p>
+    <figure class="figure">
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Quantity</th><th>Result</th><th>How</th></tr></thead>
+          <tbody>
+            <tr><td>Nitride dielectric constant εᵣ</td><td class="num">≈ 6.0 (5.9–6.1)</td><td>1 MHz C-V across five capacitor diameters</td></tr>
+            <tr><td>Substrate doping</td><td class="num">≈ 4.8 × 10¹⁶ cm⁻³</td><td>C-V depletion, checked against wafer resistivity spec</td></tr>
+            <tr><td>Nitride thickness</td><td class="num">990.7 Å</td><td>Ellipsometry, confirmed by colour chart</td></tr>
+            <tr><td>Profilometer reading</td><td class="num flag">1947 Å ✕</td><td>Rejected: implied εᵣ ≈ 12</td></tr>
+            <tr><td>Device-to-device spread</td><td class="num">&lt; 2%</td><td>Five identical capacitors</td></tr>
+            <tr><td>Leakage at +20 V</td><td class="num">&lt; 1 nA</td><td>I-V, no breakdown</td></tr>
+            <tr><td>Sputtered Al resistivity</td><td class="num">3.9 × 10⁻⁶ Ω·cm</td><td>Four-point probe; 1.5× bulk</td></tr>
+            <tr><td>Sputtered Al density</td><td class="num">2.06 g/cm³</td><td>Wafer mass; 76% of bulk</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Two thickness methods disagreed by almost 2×. The profilometer value gave a physically impossible dielectric constant, so I kept ellipsometry and traced the error to the etch recessing into the silicon at the measured step, plus tip convolution.</figcaption>
+    </figure>
+    <ul class="points">
+      <li>Attributed the aluminum's higher resistivity and lower density to grain boundaries and voids in the as-deposited film.</li>
+      <li>Extended the C-V sweep to −40 V on the Boonton's internal bias to reach full accumulation.</li>
+    </ul>
+    <ul class="tags"><li>PECVD</li><li>DC sputtering</li><li>Photolithography</li><li>RIE</li><li>Ellipsometry</li><li>C-V / I-V</li></ul>
+  </article>
+
+  <article class="entry">
+    <div class="meta"><span>Nanomaterials Synthesis Laboratory</span><span>Spring 2026</span></div>
+    <h3>Quantum-dot LEDs and nanoparticle synthesis</h3>
+    <ul class="points">
+      <li>Synthesized CdSe quantum dots from precursors with a lab group and built them into spin-cast quantum-dot LEDs.</li>
+      <li>Tuned emission across the visible spectrum through growth time, relating particle size to colour with the Brus model using photoluminescence, UV-Vis, powder XRD, and SEM.</li>
+      <li>Synthesized superparamagnetic iron-oxide nanoparticles by coprecipitation and Eu/Dy-doped phosphors, sizing crystallites by XRD line broadening.</li>
+    </ul>
+    <ul class="tags"><li>Synthesis</li><li>Photoluminescence</li><li>XRD</li><li>SEM</li></ul>
+  </article>
+</section>
+
+<section aria-labelledby="exp">
+  <div class="sec-head">
+    <span class="eyebrow">Experience</span>
+    <h2 id="exp">Co-op terms</h2>
+  </div>
+  <div class="roles">
+    <div class="role">
+      <span class="when">Sept 2025 – Apr 2026</span>
+      <div>
+        <h3>Project Engineering Co-op</h3>
+        <span class="org">Mondelez International · Toronto</span>
+        <ul class="points">
+          <li>Cut chronic jams on automated palletizing lines by 85%: ran a 6-week camera-based root-cause study, tested causes one at a time, and relocated the faulting sensor.</li>
+          <li>Closed or verified 28 of 35 machine-safety audit gaps under the IL6S Safety pillar.</li>
+          <li>Owned change-management documentation for 13 capital equipment projects and was the site's main contact for equipment vendors.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="role">
+      <span class="when">Jan – Apr 2025</span>
+      <div>
+        <h3>Mechanical Engineering Co-op</h3>
+        <span class="org">Summit Water · Cambridge</span>
+        <ul class="points">
+          <li>Built a Python tool with Power Automate alerts that scans 1000+ page contractor PDFs, cutting manual engineering review time by 80%.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="role">
+      <span class="when">May – Aug 2024</span>
+      <div>
+        <h3>Test Engineering Co-op</h3>
+        <span class="org">EXO Insights · Waterloo</span>
+        <ul class="points">
+          <li>Built and tuned test setups for wearable eye-tracking sensor hardware for accuracy and repeatability, feeding results into design iterations.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="skills">
+  <div class="sec-head">
+    <span class="eyebrow">Toolkit</span>
+    <h2 id="skills">What I work with</h2>
+  </div>
+  <div class="skills">
+    <div class="skill"><h3>Deposition &amp; etch</h3><p>PVD sputtering, PECVD, RCA clean, contact and e-beam lithography, RIE and ICP etch, wet etch, spin coating</p></div>
+    <div class="skill"><h3>Metrology</h3><p>Ellipsometry, stylus profilometry, four-point probe, SEM, TEM, AFM, XRD, Raman, FTIR, UV-Vis, PL, SIMS, RGA</p></div>
+    <div class="skill"><h3>Electrical test</h3><p>C-V and I-V probe stations (Boonton 7200, HP 4155A), oscilloscopes, DMMs, SMD soldering and reflow, I²C/SPI</p></div>
+    <div class="skill"><h3>Design &amp; data</h3><p>SolidWorks, COMSOL, DraftSight, LTspice, Python, MATLAB, Excel VBA</p></div>
+  </div>
+</section>
+
+<footer>
+  <span>Ayesha Khan · Waterloo, ON</span>
+  <span>Updated November 2026</span>
+</footer>
+
+</div>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', async (e) => {
+  const btn = e.currentTarget, text = document.getElementById('email').textContent;
+  try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected, press Ctrl+C'; }
+  setTimeout(() => { btn.textContent = 'Copy email'; }, 2200);
+});
+</script>
+
+</body>
+</html>
